@@ -79,7 +79,7 @@
             <button type="submit">Registrar</button>
         </form>
 
-        <!-- Botón para registrar salida -->
+        
         <button onclick="window.location.href='inicio_sesion.php'">Registrar salida</button>
     </div>
 
@@ -89,7 +89,7 @@
         const captureButton = document.getElementById('capture');
         const imagenInput = document.getElementById('imagenInput');
 
-        // Activar cámara
+     
         navigator.mediaDevices.getUserMedia({ video: true })
             .then((stream) => {
                 video.srcObject = stream;
@@ -99,15 +99,15 @@
                 alert("No se pudo acceder a la cámara.");
             });
 
-        // Captura de imagen
+        
         captureButton.addEventListener('click', async () => {
     const context = canvas.getContext('2d');
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    // Convertir canvas a blob
+   
     const imageBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
 
-    // Crear FormData
+  
     const formData = new FormData();
     formData.append('image', imageBlob, 'captura.png');
 
@@ -129,7 +129,7 @@
         alert("Hubo un error al intentar subir la imagen.");
     }
 });
-        // Capturar la hora actual al cargar la página
+    
         const fecha = new Date();
         const formatoHora = `${fecha.getFullYear()}-${(fecha.getMonth() + 1).toString().padStart(2, '0')}-${fecha.getDate().toString().padStart(2, '0')} ${fecha.getHours().toString().padStart(2, '0')}:${fecha.getMinutes().toString().padStart(2, '0')}:${fecha.getSeconds().toString().padStart(2, '0')}`;
         document.getElementById('horaRegistro').value = formatoHora;
